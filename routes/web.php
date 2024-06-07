@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AjouterRoleControler;
+use App\Http\Controllers\SalleClasseController;
+use App\Http\Controllers\SeanceController;
+use App\Http\Controllers\BlocController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +66,20 @@ Route::middleware('auth')->group(function () {
 //ajouter role
 Route::get('role/ajouter', [])->name('ajouter_role');
 
+//Créer une Route pour Afficher tous les éléments
+Route::get('/Salles', 'SalleClasseController@index');
+Route::get('/Salles/createSalle', [SalleClasseController::class, 'methodeCreateSalle'])->name('Salles.createSalle');
+Route::post('/Salles', [SalleClasseController::class, 'methodeStore'])->name('Salles.store');
 
+
+//route pour seance
+Route::get('/Seance/createSeance', [SeanceController::class, 'methodeCreate'])->name('Seance.createSeance');
+Route::post('/Seance', [SeanceController::class, 'methodeStore'])->name('Seance.store');
+
+
+//route pour bloc
+Route::get('/Bloc/createBloc', [BlocController::class, 'methodeCreate'])->name('Bloc.createBloc');
+Route::post('/Bloc', [BlocController::class, 'methodeStore'])->name('Bloc.store');
 });
 
 require __DIR__.'/auth.php';

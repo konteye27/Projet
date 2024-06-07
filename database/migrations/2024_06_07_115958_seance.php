@@ -13,18 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('lasse', function (Blueprint $table) {
+        Schema::create('Seance', function (Blueprint $table) {
+            $table->id();
+            $table->string('date');
+            $table->string('jour');
+            $table->string('heure_debut');
+            $table->string('heure_fin');
+            $table->string('salle_id');
 
-                $table->id();
-                $table->string('filiere');
-                $table->string('niveau');
-                $table->integer('effectif');
-                $table->timestamps();
+            $table->timestamps();
+    });
 
 
-        });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -32,8 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('lasse', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('SalleClasse');
     }
 };

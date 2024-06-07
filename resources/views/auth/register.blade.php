@@ -31,9 +31,9 @@
                                         <p>Please login to your account</p>
 
                                         <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="email" id="form2Example11" class="form-control"
+                                            <input type="email" name="email" id="email" class="form-control"
                                                 placeholder="Phone number or email address" />
-                                            <label class="form-label" for="form2Example11">Username</label>
+                                            <label class="form-label" for="email">Username</label>
                                         </div>
 
                                         <div data-mdb-input-init class="form-outline mb-4">
